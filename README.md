@@ -26,7 +26,7 @@ Make sure you have [NVIDIA Docker Toolkit](https://docs.nvidia.com/datacenter/cl
 
 ---
 
-## 🧪 Compilation and Running
+## Compilation and Running
 
 Follow these steps to compile ORB-SLAM3 and test it using the EuRoC MH01 dataset.
 
@@ -63,7 +63,7 @@ Follow these steps to compile ORB-SLAM3 and test it using the EuRoC MH01 dataset
 
 ---
 
-## 🖊️ Development Notes
+## Development Notes
 
 You can edit the code using:
 
