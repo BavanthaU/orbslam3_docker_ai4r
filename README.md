@@ -43,15 +43,7 @@ Follow these steps to compile ORB-SLAM3 and test it using the EuRoC MH01 dataset
    ./build_container_cuda.sh     # For CUDA version
    ```
 
-3. **Download EuRoC dataset**:
-
-   ```
-   wget http://robotics.ethz.ch/~asl-datasets/ijrr_euroc_mav_dataset/machine_hall/MH_01_easy/MH_01_easy.zip -O Datasets/EuRoC/MH01.zip
-   unzip Datasets/EuRoC/MH01.zip -d Datasets/EuRoC/MH01 
-   rm Datasets/EuRoC/MH01.zip
-   ```
-
-4. **Run a test example**:
+3. **Run a test example**:
 
    ```
    docker exec -it orbslam3 
