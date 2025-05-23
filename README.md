@@ -1,37 +1,71 @@
-# ORB_SLAM3 docker
+# ORB\_SLAM3 Docker
 
-This docker is based on <b>Ros Noetic Ubuntu 20</b>. If you need melodic with ubuntu 18 checkout #8fde91d
+> 🛠️ **Fork Notice**:
+> This repository is forked from the official ORB-SLAM3 Docker setup ([see repository information](https://github.com/jahaniam/orbslam3_docker.git)).
+> It has been slightly modified to help you quickly get started with ORB-SLAM3 in a Docker container.
+> This setup includes an example using the EuRoC dataset to demonstrate how to compile and run the system.
 
-There are two versions available:
-- CPU based (Xorg Nouveau display)
-- Nvidia Cuda based. 
-
-To check if you are running the nvidia driver, simply run `nvidia-smi` and see if get anything.
-
-Based on which graphic driver you are running, you should choose the proper docker. For cuda version, you need to have [nvidia-docker setup](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) on your machine.
+These changes were made in response to multiple requests from students having difficulty setting up ORB-SLAM3 on their machines.
+If you're working on a different SLAM method or setup, feel free to pursue your own direction—this is just a suggested starting point to help with **Assignment 1.3**.
 
 ---
 
-## Compilation and Running
+### Available Docker Versions:
 
-Steps to compile the Orbslam3 on the sample dataset:
+* CPU-based (Xorg / Nouveau display)
+* NVIDIA CUDA-based (for systems with GPU support)
 
-- `./download_dataset_sample.sh`
-- `build_container_cpu.sh` or `build_container_cuda.sh` depending on your machine.
+To check if you have the NVIDIA driver installed:
 
-Now you should see ORB_SLAM3 is compiling. 
-- Download A sample MH02 EuRoC example and put it in the `Datasets/EuRoC/MH02` folder
 ```
-mkdir -p Datasets/EuRoC 
-wget -O Datasets/EuRoC/MH_02_easy.zip http://robotics.ethz.ch/~asl-datasets/ijrr_euroc_mav_dataset/machine_hall/MH_02_easy/MH_02_easy.zip
-unzip Datasets/EuRoC/MH_02_easy.zip -d Datasets/EuRoC/MH02
+nvidia-smi
 ```
-To run a test example:
-- `docker exec -it orbslam3 bash`
-- `cd /ORB_SLAM3/Examples && bash ./euroc_examples.sh`
-It will take few minutes to initialize. Pleasde Be patient.
+
+If that command works, you can use the CUDA version. Otherwise, use the CPU version.
+Make sure you have [NVIDIA Docker Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) installed for CUDA support.
+
 ---
 
-You can use vscode remote development (recommended) or sublime to change codes.
-- `docker exec -it orbslam3 bash`
-- `subl /ORB_SLAM3`
+## 🧪 Compilation and Running
+
+Follow these steps to compile ORB-SLAM3 and test it using the EuRoC MH01 dataset.
+
+1. **Download sample dataset**:
+
+   ```
+   ./download_dataset_sample.sh
+   ```
+
+2. **Build the container** (choose one based on your setup):
+
+   ```
+   ./build_container_cpu.sh      # For CPU version
+   ./build_container_cuda.sh     # For CUDA version
+   ```
+
+3. **Download EuRoC dataset**:
+
+   ```
+   wget http://robotics.ethz.ch/~asl-datasets/ijrr_euroc_mav_dataset/machine_hall/MH_01_easy/MH_01_easy.zip -O Datasets/EuRoC/MH01.zip
+   unzip Datasets/EuRoC/MH01.zip -d Datasets/EuRoC/MH01 
+   rm Datasets/EuRoC/MH01.zip
+   ```
+
+4. **Run a test example**:
+
+   ```
+   docker exec -it orbslam3 
+   cd /ORB_SLAM3/Examples
+   ./euroc_examples.sh
+   ```
+
+   ⏳ *It may take a few minutes to initialize.*
+
+---
+
+## 🖊️ Development Notes
+
+You can edit the code using:
+
+* **VSCode Remote - Containers** (recommended)
+* **Sublime Text**, or any preferred editor:
