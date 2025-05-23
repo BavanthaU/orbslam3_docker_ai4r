@@ -36,7 +36,6 @@ docker run -td --privileged --net=host --ipc=host \
     -e "QT_X11_NO_MITSHM=1" \
     -v "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     -e "XAUTHORITY=$XAUTH" \
-    -e ROS_IP=127.0.0.1 \
     --cap-add=SYS_PTRACE \
     -v `pwd`/Datasets:/Datasets \
     -v /etc/group:/etc/group:ro \
@@ -44,7 +43,5 @@ docker run -td --privileged --net=host --ipc=host \
     jahaniam/orbslam3:ubuntu20_noetic_cuda bash
 
 # Git pull orbslam and compile
-docker exec -it orbslam3 bash -i -c  "git clone -b add_euroc_example.sh https://github.com/jahaniam/ORB_SLAM3.git /ORB_SLAM3 && cd /ORB_SLAM3 && chmod +x build.sh && ./build.sh "
-# Compile ORBSLAM3-ROS
-docker exec -it orbslam3 bash -i -c "echo 'ROS_PACKAGE_PATH=/opt/ros/noetic/share:/ORB_SLAM3/Examples/ROS'>>~/.bashrc && source ~/.bashrc && cd /ORB_SLAM3 && chmod +x build_ros.sh && ./build_ros.sh"
+docker exec -it orbslam3 bash -i -c "git clone https://github.com/BavanthaU/ORB_SLAM3_AI4R.git /ORB_SLAM3 && cd /ORB_SLAM3 && chmod +x build.sh && ./build.sh "
 
