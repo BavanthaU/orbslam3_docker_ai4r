@@ -40,6 +40,9 @@ Follow these steps to compile ORB-SLAM3 and test it using the EuRoC MH01 dataset
 
    ```
    ./build_container_cpu.sh      # For CPU version
+   ```
+   OR
+   ```
    ./build_container_cuda.sh     # For CUDA version
    ```
 
