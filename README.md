@@ -54,9 +54,7 @@ Follow these steps to compile ORB-SLAM3 and test it using the EuRoC MH01 dataset
 
    ⏳ *It may take a few minutes to initialize.*
 
-   Example output:
-
-   ![alt text](images/image.png)
+   ![alt text](Images/image.png)
 
 ---
 
