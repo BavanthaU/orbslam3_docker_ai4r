@@ -46,7 +46,7 @@ Follow these steps to compile ORB-SLAM3 and test it using the EuRoC MH01 dataset
 3. **Run a test example**:
 
    ```
-   docker exec -it orbslam3 
+   docker exec -it orbslam3 bash
    cd /ORB_SLAM3/Examples
    ./euroc_examples.sh
    ```
